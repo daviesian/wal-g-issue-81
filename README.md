@@ -1,5 +1,6 @@
 
-To run, make sure you have AWS credentials available somewhere (through EC2 metadata or ~/.aws/credentials), then:
+To run, make sure you have AWS credentials available somewhere (through EC2 metadata or ~/.aws/credentials).
+Update the value of `WALE_S3_PREFIX` in `docker-compose.yml`, then:
 
 ```
 $ docker-compose up
