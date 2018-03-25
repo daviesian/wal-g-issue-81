@@ -1,0 +1,15 @@
+version: "2"
+services:
+  pg-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pg-server
+    volumes:
+     - ./postgresql.conf:/postgresql.conf:ro
+     - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+     - ~/.aws:/home/postgres/.aws
+    environment:
+      WALE_S3_PREFIX: s3://wal-g-issue-81/
+      WALG_DELTA_MAX_STEPS: 0
+    command: postgres -c 'config_file=/postgresql.conf'
